@@ -119,6 +119,42 @@
   }
   .hero-stat .label { color: rgba(255,255,255,0.6); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; }
 
+  /* ANIMATION */
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes bubbleUp {
+    0% { opacity: 0; transform: translateY(0); }
+    30% { opacity: 0.7; }
+    100% { opacity: 0; transform: translateY(-18px); }
+  }
+  @keyframes wrenchWiggle {
+    0%   { transform: rotate(0deg); }
+    20%  { transform: rotate(-22deg); }
+    40%  { transform: rotate(12deg); }
+    60%  { transform: rotate(-16deg); }
+    80%  { transform: rotate(8deg); }
+    100% { transform: rotate(0deg); }
+  }
+  @keyframes sparkFade {
+    0%   { opacity: 0; }
+    30%  { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  @keyframes checkPop {
+    0%   { opacity: 0; transform: scale(0.4); }
+    60%  { opacity: 1; transform: scale(1.15); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  #drum-spin { animation: spin 2.4s linear infinite; }
+  .bubble  { animation: bubbleUp 2s 0.2s ease-in-out infinite; }
+  .bubble2 { animation: bubbleUp 2s 0.8s ease-in-out infinite; }
+  .bubble3 { animation: bubbleUp 2s 1.4s ease-in-out infinite; }
+  #wrench  { animation: wrenchWiggle 1.8s 1s ease-in-out infinite; }
+  #sparks  { animation: sparkFade 1.8s 1.3s ease-in-out infinite; }
+  #checkmark { animation: checkPop 0.5s 3.2s ease-out forwards; }
+
   /* STRIP */
   .strip {
     background: var(--light-gray);
@@ -294,11 +330,57 @@
       <a href="#services" class="btn-white-outline">Our Services</a>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-stat"><div class="num">4.5★</div><div class="label">Google Rating</div></div>
-    <div class="hero-stat"><div class="num">39</div><div class="label">Reviews</div></div>
-    <div class="hero-stat"><div class="num">Mon–Fri</div><div class="label">Available</div></div>
-    <div class="hero-stat"><div class="num">Fair</div><div class="label">Pricing Always</div></div>
+  <div class="hero-right" style="display:flex;align-items:center;justify-content:center;">
+    <svg id="repair-anim" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 300" width="100%" style="max-width:360px;display:block;">
+      <!-- Washing machine body -->
+      <rect x="80" y="60" width="180" height="190" rx="12" fill="#1e4a73" stroke="#2e6ca0" stroke-width="2"/>
+      <rect x="80" y="60" width="180" height="36" rx="12" fill="#163d62"/>
+      <rect x="80" y="84" width="180" height="12" fill="#163d62"/>
+      <circle cx="110" cy="78" r="6" fill="#e07b20"/>
+      <circle cx="132" cy="78" r="5" fill="#2e6ca0"/>
+      <circle cx="152" cy="78" r="5" fill="#2e6ca0"/>
+      <!-- Door -->
+      <circle cx="170" cy="182" r="65" fill="#163d62" stroke="#2e6ca0" stroke-width="3"/>
+      <circle cx="170" cy="182" r="52" fill="#0d2a42"/>
+      <circle cx="170" cy="182" r="44" fill="#0a2035" stroke="#1e4a73" stroke-width="1"/>
+      <!-- Drum holes -->
+      <circle cx="170" cy="145" r="4" fill="#1e4a73" opacity="0.8"/>
+      <circle cx="194" cy="155" r="4" fill="#1e4a73" opacity="0.8"/>
+      <circle cx="203" cy="180" r="4" fill="#1e4a73" opacity="0.8"/>
+      <circle cx="194" cy="205" r="4" fill="#1e4a73" opacity="0.8"/>
+      <circle cx="170" cy="215" r="4" fill="#1e4a73" opacity="0.8"/>
+      <circle cx="146" cy="205" r="4" fill="#1e4a73" opacity="0.8"/>
+      <circle cx="137" cy="180" r="4" fill="#1e4a73" opacity="0.8"/>
+      <circle cx="146" cy="155" r="4" fill="#1e4a73" opacity="0.8"/>
+      <!-- Spinning clothes -->
+      <g id="drum-spin" style="transform-origin:170px 182px">
+        <ellipse cx="158" cy="170" rx="18" ry="10" fill="#e07b20" opacity="0.7" transform="rotate(-20,158,170)"/>
+        <ellipse cx="182" cy="194" rx="15" ry="9" fill="white" opacity="0.4" transform="rotate(30,182,194)"/>
+        <ellipse cx="162" cy="192" rx="12" ry="7" fill="#5b9bd5" opacity="0.6" transform="rotate(10,162,192)"/>
+      </g>
+      <!-- Bubbles -->
+      <circle class="bubble" cx="155" cy="196" r="3" fill="#5b9bd5" opacity="0"/>
+      <circle class="bubble2" cx="175" cy="188" r="2" fill="#5b9bd5" opacity="0"/>
+      <circle class="bubble3" cx="165" cy="200" r="2.5" fill="#5b9bd5" opacity="0"/>
+      <!-- Wrench -->
+      <g id="wrench" style="transform-origin:288px 90px">
+        <rect x="281" y="58" width="14" height="50" rx="7" fill="#e07b20"/>
+        <rect x="273" y="50" width="12" height="18" rx="3" fill="#e07b20"/>
+        <rect x="291" y="50" width="12" height="18" rx="3" fill="#e07b20"/>
+        <circle cx="288" cy="110" r="8" fill="none" stroke="#e07b20" stroke-width="5"/>
+      </g>
+      <!-- Sparks -->
+      <g id="sparks" opacity="0">
+        <line x1="258" y1="75" x2="246" y2="63" stroke="#f59332" stroke-width="2" stroke-linecap="round"/>
+        <line x1="264" y1="68" x2="257" y2="54" stroke="#e07b20" stroke-width="2" stroke-linecap="round"/>
+        <line x1="270" y1="65" x2="266" y2="50" stroke="#f59332" stroke-width="1.5" stroke-linecap="round"/>
+      </g>
+      <!-- Checkmark -->
+      <g id="checkmark" opacity="0">
+        <circle cx="256" cy="44" r="16" fill="#e07b20"/>
+        <polyline points="247,44 253,51 266,36" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </svg>
   </div>
 </section>
 
