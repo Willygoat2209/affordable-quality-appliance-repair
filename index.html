@@ -4,555 +4,451 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Affordable Quality Appliance Repair</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0f1f35;
-    --navy-mid: #1a3050;
-    --steel: #2e5077;
-    --gold: #c8973a;
-    --gold-light: #e8b55a;
-    --cream: #f5f0e8;
+    --navy: #1a3a5c;
+    --navy-dark: #122840;
+    --orange: #e07b20;
+    --orange-light: #f59332;
     --white: #ffffff;
-    --gray: #6b7a8d;
-    --light-bg: #f9f7f4;
+    --off-white: #f4f6f9;
+    --light-gray: #eaeef3;
+    --text: #2c3e50;
+    --text-muted: #6b7a8d;
+    --border: #d0d9e4;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--light-bg);
-    color: var(--navy);
-    overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
   }
+
+  /* TOP BAR */
+  .top-bar {
+    background: var(--orange);
+    text-align: center; padding: 8px;
+    font-size: 0.82rem; color: var(--white); font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .top-bar a { color: var(--white); text-decoration: none; }
 
   /* NAV */
   nav {
-    position: fixed; top: 0; width: 100%; z-index: 100;
-    background: rgba(15,31,53,0.97);
-    backdrop-filter: blur(12px);
-    padding: 18px 5%;
+    background: var(--navy-dark);
+    padding: 0 5%;
     display: flex; align-items: center; justify-content: space-between;
-    border-bottom: 1px solid rgba(200,151,58,0.25);
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 3px solid var(--orange);
   }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    color: var(--gold);
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    line-height: 1.3;
+  .nav-logo { display: flex; align-items: center; padding: 10px 0; }
+  .nav-logo img { height: 50px; width: auto; }
+  .nav-links { display: flex; gap: 0; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.8); text-decoration: none;
+    font-family: 'Oswald', sans-serif; font-size: 0.85rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 22px 18px; display: block;
+    transition: color 0.2s, background 0.2s;
   }
-  .nav-logo span { display: block; color: var(--white); font-size: 0.7rem; font-family: 'DM Sans', sans-serif; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.07); }
   .nav-cta {
-    background: var(--gold); color: var(--navy);
-    padding: 10px 22px; border-radius: 2px;
-    font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    background: var(--orange); color: var(--white);
+    padding: 11px 22px;
+    font-family: 'Oswald', sans-serif; font-weight: 600;
+    font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase;
     text-decoration: none; transition: background 0.2s;
+    white-space: nowrap;
   }
-  .nav-cta:hover { background: var(--gold-light); }
+  .nav-cta:hover { background: var(--orange-light); }
 
   /* HERO */
   .hero {
-    min-height: 100vh;
     background: var(--navy);
-    display: grid; grid-template-columns: 1fr 1fr; align-items: center;
-    padding: 120px 5% 80px;
-    position: relative; overflow: hidden;
+    padding: 60px 5%;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
   }
-  .hero::before {
-    content: '';
-    position: absolute; right: 0; top: 0;
-    width: 55%; height: 100%;
-    background: linear-gradient(135deg, var(--navy-mid) 0%, var(--steel) 100%);
-    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
-  }
-  .hero-bg-text {
-    position: absolute; bottom: -40px; left: 3%;
-    font-family: 'Playfair Display', serif;
-    font-size: 18vw; font-weight: 900;
-    color: rgba(255,255,255,0.03);
-    line-height: 1; pointer-events: none; user-select: none;
-    white-space: nowrap;
-  }
-  .hero-content { position: relative; z-index: 2; }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(200,151,58,0.15);
-    border: 1px solid rgba(200,151,58,0.4);
-    color: var(--gold); padding: 7px 16px; border-radius: 50px;
-    font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
-    margin-bottom: 28px;
-    animation: fadeUp 0.8s ease both;
-  }
-  .hero-badge::before { content: '★'; font-size: 0.7rem; }
+  .hero-logo-wrap { margin-bottom: 28px; }
+  .hero-logo-wrap img { height: 110px; width: auto; }
   .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.8rem, 5vw, 4.5rem);
-    color: var(--white); line-height: 1.1; font-weight: 900;
-    margin-bottom: 24px;
-    animation: fadeUp 0.8s 0.1s ease both;
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--white); line-height: 1.15; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.02em;
+    margin-bottom: 16px;
   }
-  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero h1 span { color: var(--orange); }
   .hero p {
-    color: rgba(255,255,255,0.65); font-size: 1.05rem; line-height: 1.7;
-    max-width: 440px; margin-bottom: 40px;
-    animation: fadeUp 0.8s 0.2s ease both;
+    color: rgba(255,255,255,0.75); font-size: 1rem; line-height: 1.7;
+    margin-bottom: 32px; max-width: 420px;
   }
-  .hero-actions {
-    display: flex; gap: 16px; flex-wrap: wrap;
-    animation: fadeUp 0.8s 0.3s ease both;
-  }
-  .btn-primary {
-    background: var(--gold); color: var(--navy);
-    padding: 15px 32px; border-radius: 2px;
-    font-weight: 700; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase;
-    text-decoration: none; transition: all 0.2s;
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-orange {
+    background: var(--orange); color: var(--white);
+    padding: 13px 26px;
+    font-family: 'Oswald', sans-serif; font-weight: 600;
+    font-size: 0.95rem; letter-spacing: 0.05em; text-transform: uppercase;
+    text-decoration: none; transition: background 0.2s;
     display: inline-flex; align-items: center; gap: 8px;
   }
-  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-  .btn-outline {
-    border: 1px solid rgba(255,255,255,0.3); color: var(--white);
-    padding: 15px 32px; border-radius: 2px;
-    font-weight: 500; font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase;
+  .btn-orange:hover { background: var(--orange-light); }
+  .btn-white-outline {
+    border: 2px solid rgba(255,255,255,0.45); color: var(--white);
+    padding: 13px 26px;
+    font-family: 'Oswald', sans-serif; font-weight: 600;
+    font-size: 0.95rem; letter-spacing: 0.05em; text-transform: uppercase;
     text-decoration: none; transition: all 0.2s;
   }
-  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-white-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
 
-  .hero-visual {
-    position: relative; z-index: 2;
-    display: flex; flex-direction: column; align-items: flex-end; gap: 16px;
-    animation: fadeUp 0.8s 0.4s ease both;
-  }
-  .stat-card {
+  .hero-right { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .hero-stat {
     background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 4px; padding: 24px 30px;
-    backdrop-filter: blur(10px);
-    width: 220px;
+    border: 1px solid rgba(255,255,255,0.13);
+    border-top: 3px solid var(--orange);
+    padding: 22px 18px; text-align: center;
   }
-  .stat-card .num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem; color: var(--gold); font-weight: 900; line-height: 1;
+  .hero-stat .num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem; color: var(--orange); font-weight: 700; line-height: 1;
+    margin-bottom: 6px;
   }
-  .stat-card .label { color: rgba(255,255,255,0.55); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 6px; }
-  .stat-card.accent { background: var(--gold); border-color: var(--gold); }
-  .stat-card.accent .num { color: var(--navy); }
-  .stat-card.accent .label { color: rgba(15,31,53,0.7); }
+  .hero-stat .label { color: rgba(255,255,255,0.6); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; }
 
-  /* TRUST BAR */
-  .trust-bar {
-    background: var(--cream);
-    border-top: 3px solid var(--gold);
-    padding: 28px 5%;
-    display: flex; align-items: center; justify-content: center; gap: 60px;
-    flex-wrap: wrap;
+  /* STRIP */
+  .strip {
+    background: var(--light-gray);
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    padding: 18px 5%;
+    display: flex; align-items: center; justify-content: center;
+    gap: 48px; flex-wrap: wrap;
   }
-  .trust-item { display: flex; align-items: center; gap: 12px; }
-  .trust-icon { font-size: 1.4rem; }
-  .trust-text strong { display: block; font-size: 0.85rem; font-weight: 700; color: var(--navy); letter-spacing: 0.02em; }
-  .trust-text span { font-size: 0.75rem; color: var(--gray); }
+  .strip-item { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; font-weight: 600; color: var(--navy); }
+  .strip-item .icon { font-size: 1.1rem; }
+
+  /* SECTION STYLES */
+  .section-tag {
+    display: inline-block;
+    background: var(--orange); color: var(--white);
+    font-family: 'Oswald', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+    padding: 4px 12px; margin-bottom: 12px;
+  }
+  h2.section-title {
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    color: var(--navy); text-transform: uppercase; letter-spacing: 0.02em; line-height: 1.15;
+  }
+  .section-desc { color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; margin-top: 10px; }
 
   /* SERVICES */
-  .services { padding: 100px 5%; background: var(--white); }
-  .section-label {
-    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold); font-weight: 700; margin-bottom: 12px;
-  }
-  .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: var(--navy);
-    line-height: 1.15; margin-bottom: 16px;
-  }
-  .section-sub { color: var(--gray); font-size: 1rem; line-height: 1.7; max-width: 500px; margin-bottom: 60px; }
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2px; }
+  .services { padding: 70px 5%; background: var(--white); }
+  .services .section-header { margin-bottom: 36px; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
   .service-card {
-    background: var(--light-bg);
-    padding: 40px 32px;
-    border-bottom: 3px solid transparent;
-    transition: all 0.3s;
-    cursor: default;
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--navy);
+    padding: 26px 22px;
+    transition: border-top-color 0.2s, box-shadow 0.2s;
   }
-  .service-card:hover { background: var(--navy); border-color: var(--gold); transform: translateY(-4px); }
-  .service-icon { font-size: 2rem; margin-bottom: 20px; display: block; }
-  .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; transition: color 0.3s; }
-  .service-card p { color: var(--gray); font-size: 0.88rem; line-height: 1.6; transition: color 0.3s; }
-  .service-card:hover h3, .service-card:hover p { color: rgba(255,255,255,0.85); }
-  .service-card:hover .service-icon { filter: brightness(0) invert(1); }
-
-  /* ABOUT */
-  .about {
-    padding: 100px 5%;
-    background: var(--navy);
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
-  }
-  .about-text .section-title { color: var(--white); }
-  .about-text .section-sub { color: rgba(255,255,255,0.6); max-width: 100%; }
-  .about-feature { display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start; }
-  .about-feature-icon {
-    width: 44px; height: 44px; border-radius: 2px;
-    background: rgba(200,151,58,0.15); border: 1px solid rgba(200,151,58,0.35);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; flex-shrink: 0;
-  }
-  .about-feature-text strong { display: block; color: var(--white); font-size: 0.95rem; margin-bottom: 4px; }
-  .about-feature-text span { color: rgba(255,255,255,0.55); font-size: 0.85rem; line-height: 1.5; }
-  .about-card {
-    background: var(--steel);
-    border-radius: 4px; padding: 50px 40px;
-    border: 1px solid rgba(255,255,255,0.08);
-    position: relative; overflow: hidden;
-  }
-  .about-card::before {
-    content: '"'; position: absolute; top: -20px; left: 20px;
-    font-family: 'Playfair Display', serif; font-size: 14rem;
-    color: rgba(255,255,255,0.04); line-height: 1;
-  }
-  .about-card blockquote {
-    font-family: 'Playfair Display', serif; font-size: 1.25rem;
-    color: var(--white); line-height: 1.65; font-style: italic;
-    margin-bottom: 24px; position: relative; z-index: 1;
-  }
-  .about-card cite { font-size: 0.8rem; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; font-style: normal; }
+  .service-card:hover { border-top-color: var(--orange); box-shadow: 0 4px 18px rgba(0,0,0,0.08); }
+  .service-icon { font-size: 1.8rem; margin-bottom: 12px; display: block; }
+  .service-card h3 { font-family: 'Oswald', sans-serif; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--navy); margin-bottom: 8px; }
+  .service-card p { color: var(--text-muted); font-size: 0.84rem; line-height: 1.6; }
 
   /* REVIEWS */
-  .reviews { padding: 100px 5%; background: var(--light-bg); }
-  .reviews-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap; gap: 24px; }
-  .rating-summary { text-align: right; }
-  .rating-big { font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 900; color: var(--navy); line-height: 1; }
-  .stars { color: var(--gold); font-size: 1.2rem; letter-spacing: 2px; margin: 4px 0; }
-  .rating-count { color: var(--gray); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; }
-  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .reviews { padding: 70px 5%; background: var(--off-white); border-top: 1px solid var(--border); }
+  .reviews-top { display: flex; align-items: flex-start; gap: 32px; margin-bottom: 36px; flex-wrap: wrap; justify-content: space-between; }
+  .google-rating {
+    background: var(--white); border: 1px solid var(--border);
+    padding: 18px 24px; display: flex; align-items: center; gap: 16px; flex-shrink: 0;
+  }
+  .google-rating .big-num { font-family: 'Oswald', sans-serif; font-size: 3rem; font-weight: 700; color: var(--navy); line-height: 1; }
+  .google-rating .stars { color: #f4b400; font-size: 1rem; letter-spacing: 2px; margin: 4px 0; }
+  .google-rating .count { font-size: 0.78rem; color: var(--text-muted); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
   .review-card {
-    background: var(--white); padding: 36px 32px; border-radius: 2px;
-    border-top: 3px solid transparent;
-    transition: border-color 0.3s, transform 0.3s;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    background: var(--white); border: 1px solid var(--border);
+    border-left: 4px solid var(--orange);
+    padding: 26px 22px;
   }
-  .review-card:hover { border-color: var(--gold); transform: translateY(-4px); }
-  .review-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 16px; }
-  .review-text { color: #444; font-size: 0.92rem; line-height: 1.7; margin-bottom: 20px; font-style: italic; }
-  .reviewer { display: flex; align-items: center; gap: 12px; }
-  .reviewer-avatar {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: var(--navy); color: var(--gold);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700;
-  }
+  .review-stars { color: #f4b400; font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 12px; }
+  .review-text { color: var(--text); font-size: 0.9rem; line-height: 1.7; margin-bottom: 16px; font-style: italic; }
   .reviewer-name { font-weight: 700; font-size: 0.88rem; color: var(--navy); }
-  .reviewer-meta { font-size: 0.75rem; color: var(--gray); }
+  .reviewer-meta { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
 
-  /* HOURS & CONTACT */
-  .contact-section {
-    padding: 100px 5%;
-    background: var(--navy);
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+  /* ABOUT */
+  .about { padding: 70px 5%; background: var(--navy); }
+  .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .about .section-title { color: var(--white); }
+  .about .section-desc { color: rgba(255,255,255,0.65); }
+  .feature-list { margin-top: 28px; }
+  .feature-item { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .feature-item:last-child { border-bottom: none; }
+  .feature-icon {
+    width: 38px; height: 38px; background: var(--orange);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; flex-shrink: 0;
   }
-  .contact-section .section-title { color: var(--white); }
-  .hours-grid { margin-top: 36px; }
-  .hours-row {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
-    font-size: 0.9rem;
+  .feature-item strong { display: block; color: var(--white); font-size: 0.9rem; margin-bottom: 3px; }
+  .feature-item span { color: rgba(255,255,255,0.55); font-size: 0.83rem; line-height: 1.5; }
+  .cta-box {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+    border-top: 4px solid var(--orange);
+    padding: 36px 32px;
   }
-  .hours-row .day { color: rgba(255,255,255,0.65); }
-  .hours-row .time { color: var(--white); font-weight: 500; }
-  .hours-row.today .day { color: var(--gold); font-weight: 700; }
-  .hours-row.today .time { color: var(--gold); }
-  .hours-row.closed .time { color: rgba(255,255,255,0.3); }
-  .contact-info { margin-top: 36px; }
-  .contact-item {
+  .cta-box h3 { font-family: 'Oswald', sans-serif; font-size: 1.5rem; text-transform: uppercase; color: var(--white); margin-bottom: 12px; }
+  .cta-box p { color: rgba(255,255,255,0.65); font-size: 0.88rem; line-height: 1.7; margin-bottom: 22px; }
+  .cta-phone {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Oswald', sans-serif; font-size: 1.7rem;
+    color: var(--orange); font-weight: 700; text-decoration: none;
+    margin-bottom: 20px; letter-spacing: 0.02em;
+  }
+  .cta-phone:hover { color: var(--orange-light); }
+
+  /* CONTACT & HOURS */
+  .contact { padding: 70px 5%; background: var(--off-white); border-top: 1px solid var(--border); }
+  .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .hours-table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+  .hours-table tr { border-bottom: 1px solid var(--border); }
+  .hours-table td { padding: 12px 8px; font-size: 0.9rem; }
+  .hours-table td:first-child { color: var(--text-muted); }
+  .hours-table td:last-child { font-weight: 600; color: var(--navy); text-align: right; }
+  .hours-table tr.today td { color: var(--orange) !important; font-weight: 700; }
+  .hours-table tr.closed td:last-child { color: var(--text-muted); font-weight: 400; }
+  .contact-cards { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+  .contact-card {
     display: flex; align-items: center; gap: 16px;
-    padding: 20px 24px; margin-bottom: 12px;
-    background: rgba(255,255,255,0.05); border-radius: 2px;
-    border-left: 3px solid var(--gold);
-    text-decoration: none; transition: background 0.2s;
+    background: var(--white); border: 1px solid var(--border);
+    border-left: 4px solid var(--navy);
+    padding: 16px 18px; text-decoration: none;
+    transition: border-left-color 0.2s;
   }
-  .contact-item:hover { background: rgba(255,255,255,0.1); }
-  .contact-item-icon { font-size: 1.3rem; }
-  .contact-item-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
-  .contact-item-value { font-size: 1.05rem; color: var(--white); font-weight: 500; }
-  .service-area-note { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 20px; line-height: 1.6; }
+  .contact-card:hover { border-left-color: var(--orange); }
+  .contact-card-icon { font-size: 1.3rem; }
+  .contact-card-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 2px; }
+  .contact-card-value { font-weight: 700; font-size: 0.98rem; color: var(--navy); }
 
   /* FOOTER */
   footer {
-    background: #08131f;
-    padding: 40px 5%;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 16px;
-    border-top: 1px solid rgba(200,151,58,0.2);
+    background: var(--navy-dark);
+    border-top: 3px solid var(--orange);
+    padding: 28px 5%;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
   }
-  .footer-logo { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1rem; font-weight: 700; }
-  footer p { color: rgba(255,255,255,0.3); font-size: 0.8rem; }
-  .footer-stars { color: var(--gold); font-size: 0.8rem; }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  .footer-logo img { height: 44px; filter: brightness(0) invert(1); }
+  footer p { color: rgba(255,255,255,0.4); font-size: 0.78rem; }
+  .footer-right { text-align: right; }
+  .footer-right a { color: var(--orange); font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 600; text-decoration: none; display: block; }
+  .footer-right span { color: rgba(255,255,255,0.35); font-size: 0.73rem; }
 
   /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; padding-top: 100px; }
-    .hero::before { display: none; }
-    .hero-visual { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
-    .stat-card { width: 160px; }
-    .about { grid-template-columns: 1fr; }
-    .contact-section { grid-template-columns: 1fr; }
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { grid-template-columns: repeat(2, 1fr); }
+    .about-inner { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; }
     .nav-links { display: none; }
-    .reviews-header { flex-direction: column; align-items: flex-start; }
-    .rating-summary { text-align: left; }
+    footer { flex-direction: column; align-items: flex-start; }
+    .footer-right { text-align: left; }
+    .reviews-top { flex-direction: column; }
   }
 </style>
 </head>
 <body>
 
+<!-- TOP BAR -->
+<div class="top-bar">
+  📞 Call or Text: <a href="tel:4799700096">(479) 970-0096</a> &nbsp;·&nbsp; Mon–Fri 9 AM – 4 PM
+</div>
+
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    Affordable Quality
-    <span>Appliance Repair</span>
+    <img src="affordablequalityappliancerepair.png" alt="Affordable Quality Appliance Repair">
   </div>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
     <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#contact">Hours & Contact</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Hours &amp; Contact</a></li>
   </ul>
-  <a href="tel:4799700096" class="nav-cta">📞 Call Now</a>
+  <a href="tel:4799700096" class="nav-cta">📞 (479) 970-0096</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-badge">4.5 Stars · 39 Google Reviews</div>
-    <h1>Expert Repair.<br><em>Fair Prices.</em><br>Every Time.</h1>
-    <p>When your appliance breaks down, we come to you. Fast diagnostics, quality parts, and honest service you can count on.</p>
-    <div class="hero-actions">
-      <a href="tel:4799700096" class="btn-primary">📞 (479) 970-0096</a>
-      <a href="#services" class="btn-outline">Our Services</a>
+    <div class="hero-logo-wrap">
+      <img src="affordablequalityappliancerepair.png" alt="Affordable Quality Appliance Repair Logo">
+    </div>
+    <h1>Your Local<br><span>Appliance Repair</span><br>Experts</h1>
+    <p>Fast, honest, and affordable appliance repair serving Northwest Arkansas. Brian comes to you — no hassle, no guesswork.</p>
+    <div class="hero-btns">
+      <a href="tel:4799700096" class="btn-orange">📞 Call (479) 970-0096</a>
+      <a href="#services" class="btn-white-outline">Our Services</a>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="stat-card accent">
-      <div class="num">4.5★</div>
-      <div class="label">Google Rating</div>
-    </div>
-    <div class="stat-card">
-      <div class="num">39</div>
-      <div class="label">Happy Customers</div>
-    </div>
-    <div class="stat-card">
-      <div class="num">Fast</div>
-      <div class="label">Same-Week Service</div>
-    </div>
+  <div class="hero-right">
+    <div class="hero-stat"><div class="num">4.5★</div><div class="label">Google Rating</div></div>
+    <div class="hero-stat"><div class="num">39</div><div class="label">Reviews</div></div>
+    <div class="hero-stat"><div class="num">Mon–Fri</div><div class="label">Available</div></div>
+    <div class="hero-stat"><div class="num">Fair</div><div class="label">Pricing Always</div></div>
   </div>
-  <div class="hero-bg-text">FIX</div>
 </section>
 
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-item">
-    <div class="trust-icon">🔧</div>
-    <div class="trust-text"><strong>All Major Brands</strong><span>Whirlpool, GE & more</span></div>
-  </div>
-  <div class="trust-item">
-    <div class="trust-icon">✅</div>
-    <div class="trust-text"><strong>Honest Diagnostics</strong><span>No guesswork</span></div>
-  </div>
-  <div class="trust-item">
-    <div class="trust-icon">📞</div>
-    <div class="trust-text"><strong>Easy Scheduling</strong><span>Simple, above-standard communication</span></div>
-  </div>
-  <div class="trust-item">
-    <div class="trust-icon">💰</div>
-    <div class="trust-text"><strong>Fair Pricing</strong><span>Affordable, quality work</span></div>
-  </div>
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item"><span class="icon">✅</span> All Major Brands</div>
+  <div class="strip-item"><span class="icon">🔧</span> Washer · Dryer · Oven · Fridge</div>
+  <div class="strip-item"><span class="icon">📞</span> Easy Scheduling</div>
+  <div class="strip-item"><span class="icon">💰</span> Affordable Rates</div>
+  <div class="strip-item"><span class="icon">📍</span> Northwest Arkansas</div>
 </div>
 
 <!-- SERVICES -->
 <section class="services" id="services">
-  <div class="section-label">What We Fix</div>
-  <h2 class="section-title">Appliance Repair<br>Done Right</h2>
-  <p class="section-sub">From washers to wall ovens, Brian diagnoses the problem fast and gets your appliance back in working order.</p>
+  <div class="section-header">
+    <div class="section-tag">What We Fix</div>
+    <h2 class="section-title">Appliance Repair Services</h2>
+    <p class="section-desc">We repair most major home appliances. If it's broken, give us a call — we'll diagnose it and give you a straight answer.</p>
+  </div>
   <div class="services-grid">
-    <div class="service-card">
-      <span class="service-icon">👕</span>
-      <h3>Washers & Dryers</h3>
-      <p>Laundry appliance diagnosis and repair for all makes. Cycling issues, heating problems, and more.</p>
+    <div class="service-card"><span class="service-icon">👕</span><h3>Washers</h3><p>Cycling issues, draining problems, won't spin — we diagnose and fix all washer problems including Whirlpool and more.</p></div>
+    <div class="service-card"><span class="service-icon">💨</span><h3>Dryers</h3><p>Not heating, won't start, or taking too long? We get your dryer back in working order fast.</p></div>
+    <div class="service-card"><span class="service-icon">🔥</span><h3>Ovens & Ranges</h3><p>Wall ovens, gas ranges, igniters, bake/broil elements — we replace parts and restore full function.</p></div>
+    <div class="service-card"><span class="service-icon">❄️</span><h3>Refrigerators</h3><p>Not cooling, ice maker issues, water dispenser problems — we service all refrigerator types.</p></div>
+    <div class="service-card"><span class="service-icon">🍽️</span><h3>Dishwashers</h3><p>Not draining, poor cleaning, or won't start — dishwasher repairs done right.</p></div>
+    <div class="service-card"><span class="service-icon">🛠️</span><h3>Diagnostic Service</h3><p>Not sure what's wrong? We'll run a full diagnostic, explain the issue clearly, and give you an honest quote.</p></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="reviews-top">
+    <div>
+      <div class="section-tag">Google Reviews</div>
+      <h2 class="section-title">What Customers Are Saying</h2>
     </div>
-    <div class="service-card">
-      <span class="service-icon">🔥</span>
-      <h3>Ovens & Ranges</h3>
-      <p>Wall ovens, gas ranges, igniters, and heating elements. We bring it back to full performance.</p>
+    <div class="google-rating">
+      <div class="big-num">4.5</div>
+      <div>
+        <div class="stars">★★★★½</div>
+        <div class="count">39 Google Reviews</div>
+      </div>
     </div>
-    <div class="service-card">
-      <span class="service-icon">❄️</span>
-      <h3>Refrigerators</h3>
-      <p>Cooling issues, ice maker repairs, and general refrigerator diagnostics and servicing.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"We highly recommend Affordable Quality Appliance Repair. Bryan came out and diagnosed our wall oven, replaced the igniter and fixed the oven. Their appointment set up and communication are above standard in my opinion. We will be using this company again."</p>
+      <div class="reviewer-name">Josh C.</div>
+      <div class="reviewer-meta">Local Guide · 9 months ago</div>
     </div>
-    <div class="service-card">
-      <span class="service-icon">🍽️</span>
-      <h3>Dishwashers</h3>
-      <p>Drainage problems, cycle failures, and mechanical repairs for your dishwasher.</p>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Best repair company that I have ever used. So thankful. Brian does a great job and is really friendly. 5 plus stars. Everything from scheduling to the end repair was perfect. Thank you for fixing our dryer."</p>
+      <div class="reviewer-name">Chris Goodwin</div>
+      <div class="reviewer-meta">1 year ago</div>
     </div>
-    <div class="service-card">
-      <span class="service-icon">🧊</span>
-      <h3>Freezers</h3>
-      <p>Standalone and built-in freezer repairs. Temperature and mechanical issues resolved.</p>
-    </div>
-    <div class="service-card">
-      <span class="service-icon">🛠️</span>
-      <h3>Diagnostic Service</h3>
-      <p>Not sure what's wrong? We run a full diagnostic, explain the issue clearly, and provide a fair quote.</p>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Brian came to check my Whirlpool washer — it was cycling to drain on its own. He reset it and ran a diagnostic test. It began to work properly. He told me to let him know if it started doing it again and he would come back."</p>
+      <div class="reviewer-name">Wayne C.</div>
+      <div class="reviewer-meta">10 months ago</div>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
-  <div class="about-text">
-    <div class="section-label">About Us</div>
-    <h2 class="section-title">Local. Trusted.<br>Professional.</h2>
-    <p class="section-sub">Affordable Quality Appliance Repair is your local expert for home appliance service. We believe every customer deserves friendly, thorough, and fairly-priced repairs.</p>
-    <div class="about-feature">
-      <div class="about-feature-icon">🎯</div>
-      <div class="about-feature-text">
-        <strong>Accurate Diagnostics First</strong>
-        <span>We run thorough diagnostic tests before any repair so you know exactly what's happening.</span>
-      </div>
-    </div>
-    <div class="about-feature">
-      <div class="about-feature-icon">💬</div>
-      <div class="about-feature-text">
-        <strong>Above-Standard Communication</strong>
-        <span>From booking to job completion, our scheduling and follow-up are consistently praised by customers.</span>
-      </div>
-    </div>
-    <div class="about-feature">
-      <div class="about-feature-icon">🤝</div>
-      <div class="about-feature-text">
-        <strong>We Stand Behind Our Work</strong>
-        <span>If the issue returns, we'll come back. Your satisfaction is our priority.</span>
-      </div>
-    </div>
-  </div>
-  <div>
-    <div class="about-card">
-      <blockquote>"Best repair company that I have ever used. Everything from scheduling to the end repair was perfect."</blockquote>
-      <cite>— Chris Goodwin, Verified Google Review</cite>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="reviews" id="reviews">
-  <div class="reviews-header">
+  <div class="about-inner">
     <div>
-      <div class="section-label">Customer Reviews</div>
-      <h2 class="section-title">What Our Customers Say</h2>
-    </div>
-    <div class="rating-summary">
-      <div class="rating-big">4.5</div>
-      <div class="stars">★★★★½</div>
-      <div class="rating-count">39 Google Reviews</div>
-    </div>
-  </div>
-  <div class="reviews-grid">
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"We highly recommend Affordable Quality Appliance Repair. Bryan came out and diagnosed our wall oven, replaced the igniter and fixed the oven. Their appointment set up and communication are above standard in my opinion."</p>
-      <div class="reviewer">
-        <div class="reviewer-avatar">J</div>
-        <div>
-          <div class="reviewer-name">Josh C.</div>
-          <div class="reviewer-meta">Local Guide · 9 months ago</div>
+      <div class="section-tag">Why Choose Us</div>
+      <h2 class="section-title">Honest Work.<br>Fair Prices.</h2>
+      <p class="section-desc">We're a local appliance repair service built on doing things the right way — clear communication, accurate diagnostics, and quality repairs at a price that makes sense.</p>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon">🎯</div>
+          <div><strong>Accurate Diagnostics</strong><span>We test before we quote. No guessing, no unnecessary repairs.</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">💬</div>
+          <div><strong>Easy to Work With</strong><span>Customers consistently praise our scheduling and communication.</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🤝</div>
+          <div><strong>We Stand Behind Our Work</strong><span>If the issue comes back, so do we.</span></div>
         </div>
       </div>
     </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Best repair company that I have ever used. So thankful. Brian does a great job and is really friendly. 5 plus stars. Everything from scheduling to the end repair was perfect. Thank you for fixing our dryer."</p>
-      <div class="reviewer">
-        <div class="reviewer-avatar">C</div>
-        <div>
-          <div class="reviewer-name">Chris Goodwin</div>
-          <div class="reviewer-meta">1 year ago</div>
-        </div>
-      </div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Brian came to check my Whirlpool washer as it was cycling to drain on its own. He reset it and ran a diagnostic test on it. It began to work properly. He told me to let him know if it started doing it again and he would come back."</p>
-      <div class="reviewer">
-        <div class="reviewer-avatar">W</div>
-        <div>
-          <div class="reviewer-name">Wayne C.</div>
-          <div class="reviewer-meta">10 months ago</div>
-        </div>
-      </div>
+    <div class="cta-box">
+      <h3>Ready to Book?</h3>
+      <p>Give us a call during business hours and we'll get your appliance on the schedule. Fast, friendly, and local.</p>
+      <a href="tel:4799700096" class="cta-phone">📞 (479) 970-0096</a>
+      <a href="tel:4799700096" class="btn-orange">Call or Text Now</a>
     </div>
   </div>
 </section>
 
-<!-- CONTACT & HOURS -->
-<section class="contact-section" id="contact">
-  <div>
-    <div class="section-label">Business Hours</div>
-    <h2 class="section-title" style="color:white">When We're<br>Available</h2>
-    <div class="hours-grid">
-      <div class="hours-row today"><span class="day">Thursday (Today)</span><span class="time">9:00 AM – 4:00 PM</span></div>
-      <div class="hours-row"><span class="day">Friday</span><span class="time">9:00 AM – 4:00 PM</span></div>
-      <div class="hours-row closed"><span class="day">Saturday</span><span class="time">Closed</span></div>
-      <div class="hours-row closed"><span class="day">Sunday</span><span class="time">Closed</span></div>
-      <div class="hours-row"><span class="day">Monday</span><span class="time">9:00 AM – 4:00 PM</span></div>
-      <div class="hours-row"><span class="day">Tuesday</span><span class="time">9:00 AM – 4:00 PM</span></div>
-      <div class="hours-row"><span class="day">Wednesday</span><span class="time">9:00 AM – 4:00 PM</span></div>
+<!-- HOURS & CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-tag">Business Hours</div>
+      <h2 class="section-title">Hours of Operation</h2>
+      <table class="hours-table">
+        <tr class="closed" data-day="0"><td>Sunday</td><td>Closed</td></tr>
+        <tr data-day="1"><td>Monday</td><td>9:00 AM – 4:00 PM</td></tr>
+        <tr data-day="2"><td>Tuesday</td><td>9:00 AM – 4:00 PM</td></tr>
+        <tr data-day="3"><td>Wednesday</td><td>9:00 AM – 4:00 PM</td></tr>
+        <tr data-day="4"><td>Thursday</td><td>9:00 AM – 4:00 PM</td></tr>
+        <tr data-day="5"><td>Friday</td><td>9:00 AM – 4:00 PM</td></tr>
+        <tr class="closed" data-day="6"><td>Saturday</td><td>Closed</td></tr>
+      </table>
     </div>
-  </div>
-  <div>
-    <div class="section-label">Get In Touch</div>
-    <h2 class="section-title" style="color:white">Ready to Book<br>a Repair?</h2>
-    <div class="contact-info">
-      <a href="tel:4799700096" class="contact-item">
-        <div class="contact-item-icon">📞</div>
-        <div>
-          <div class="contact-item-label">Call Us</div>
-          <div class="contact-item-value">(479) 970-0096</div>
+    <div>
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact-cards">
+        <a href="tel:4799700096" class="contact-card">
+          <div class="contact-card-icon">📞</div>
+          <div><div class="contact-card-label">Call or Text</div><div class="contact-card-value">(479) 970-0096</div></div>
+        </a>
+        <div class="contact-card">
+          <div class="contact-card-icon">📍</div>
+          <div><div class="contact-card-label">Service Area</div><div class="contact-card-value">Northwest Arkansas</div></div>
         </div>
-      </a>
-      <div class="contact-item" style="cursor:default;">
-        <div class="contact-item-icon">📍</div>
-        <div>
-          <div class="contact-item-label">Service Area</div>
-          <div class="contact-item-value">Northwest Arkansas</div>
-        </div>
-      </div>
-      <div class="contact-item" style="cursor:default;">
-        <div class="contact-item-icon">⭐</div>
-        <div>
-          <div class="contact-item-label">Rated on Google</div>
-          <div class="contact-item-value">4.5 Stars · 39 Reviews</div>
+        <div class="contact-card">
+          <div class="contact-card-icon">⭐</div>
+          <div><div class="contact-card-label">Google Rating</div><div class="contact-card-value">4.5 Stars · 39 Reviews</div></div>
         </div>
       </div>
     </div>
-    <p class="service-area-note">We come to you. Call during business hours Monday–Friday to schedule your appliance repair appointment.</p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Affordable Quality Appliance Repair</div>
-  <div class="footer-stars">★★★★½ 4.5 on Google</div>
-  <p>© 2025 · (479) 970-0096</p>
+  <div class="footer-logo">
+    <img src="affordablequalityappliancerepair.png" alt="Affordable Quality Appliance Repair">
+  </div>
+  <p>Serving Northwest Arkansas · Mon–Fri 9 AM – 4 PM · © 2025 Affordable Quality Appliance Repair</p>
+  <div class="footer-right">
+    <a href="tel:4799700096">(479) 970-0096</a>
+    <span>Call or Text Anytime</span>
+  </div>
 </footer>
 
+<script>
+  const today = new Date().getDay();
+  const row = document.querySelector(`.hours-table tr[data-day="${today}"]`);
+  if (row) row.classList.add('today');
+</script>
 </body>
 </html>
