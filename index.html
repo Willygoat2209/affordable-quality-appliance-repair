@@ -3,596 +3,689 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Affordable Quality Appliance Repair | NW Arkansas</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<title>Affordable Quality Appliance Repair | Northwest Arkansas</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --black:#0d0d0d;
-  --white:#f5f2ed;
-  --orange:#e8720a;
-  --orange-lt:#ff8c24;
-  --slate:#1c2b3a;
-  --mid:#3a4a58;
-}
-html{scroll-behavior:smooth;}
-body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
-/* ─── STICKY PHONE BAR ─────────────────── */
-.phonebar{
-  position:fixed;bottom:0;left:0;right:0;z-index:999;
-  background:var(--orange);
-  display:flex;align-items:center;justify-content:center;gap:12px;
-  padding:14px;
-  font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:.08em;
-}
-.phonebar a{color:#fff;text-decoration:none;}
-.phonebar span{color:rgba(255,255,255,.6);font-size:.9rem;font-family:'DM Sans',sans-serif;font-weight:300;}
-
-/* ─── NAV ──────────────────────────────── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px 40px;
-  mix-blend-mode:normal;
-  background:linear-gradient(to bottom,rgba(13,13,13,.9),transparent);
-}
-.nav-brand{
-  font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.12em;
-  color:var(--white);line-height:1.2;
-}
-.nav-brand em{color:var(--orange);font-style:normal;display:block;}
-.nav-links{display:flex;gap:28px;list-style:none;}
-.nav-links a{
-  color:rgba(255,255,255,.65);text-decoration:none;
-  font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
-  transition:color .2s;
-}
-.nav-links a:hover{color:var(--white);}
-.nav-cta{
-  background:var(--orange);color:#fff;
-  font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.1em;
-  padding:8px 20px;text-decoration:none;transition:background .2s;
-}
-.nav-cta:hover{background:var(--orange-lt);}
-
-/* ─── HERO ─────────────────────────────── */
-.hero{
-  position:relative;height:100vh;min-height:640px;
-  display:grid;grid-template-columns:1fr 1fr;
-  overflow:hidden;
-}
-.hero-img{
-  position:relative;overflow:hidden;
-}
-.hero-img img{
-  width:100%;height:100%;object-fit:cover;object-position:center;
-  filter:brightness(.55) saturate(.8);
-  transform:scale(1.04);
-  transition:transform 8s ease;
-}
-.hero-img img.loaded{transform:scale(1);}
-/* orange slash overlay */
-.hero-img::after{
-  content:'';
-  position:absolute;inset:0;
-  background:linear-gradient(105deg,transparent 55%,rgba(232,114,10,.18) 100%);
-}
-.hero-text{
-  background:var(--black);
-  display:flex;flex-direction:column;justify-content:flex-end;
-  padding:60px 48px 120px;
-  position:relative;overflow:hidden;
-}
-/* big watermark number */
-.hero-text::before{
-  content:'24/7';
-  position:absolute;top:-20px;right:-10px;
-  font-family:'Bebas Neue',sans-serif;font-size:18rem;
-  color:rgba(255,255,255,.03);line-height:1;pointer-events:none;
-}
-.hero-tag{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--orange);font-weight:500;margin-bottom:20px;
-}
-.hero-tag::before{content:'';width:28px;height:1.5px;background:var(--orange);}
-.hero h1{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(4rem,8vw,7rem);line-height:.95;
-  letter-spacing:.02em;color:var(--white);
-  margin-bottom:28px;
-}
-.hero h1 .line-orange{color:var(--orange);}
-.hero-desc{
-  color:rgba(255,255,255,.55);font-size:.95rem;line-height:1.75;
-  max-width:340px;font-weight:300;margin-bottom:36px;
-}
-.hero-actions{display:flex;gap:12px;align-items:center;}
-.btn-main{
-  background:var(--orange);color:#fff;
-  font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:.1em;
-  padding:14px 32px;text-decoration:none;transition:background .2s,transform .15s;
-}
-.btn-main:hover{background:var(--orange-lt);transform:translateX(3px);}
-.btn-line{
-  color:rgba(255,255,255,.6);font-size:.78rem;letter-spacing:.12em;
-  text-transform:uppercase;text-decoration:none;font-weight:500;
-  border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:2px;
-  transition:color .2s,border-color .2s;
-}
-.btn-line:hover{color:#fff;border-color:#fff;}
-.hero-rating{
-  position:absolute;top:40px;left:48px;
-  display:flex;align-items:center;gap:10px;
-}
-.stars-badge{
-  background:var(--orange);
-  font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.06em;
-  padding:6px 14px;color:#fff;
-}
-.rating-text{color:rgba(255,255,255,.5);font-size:.78rem;letter-spacing:.06em;}
-
-/* ─── MARQUEE STRIP ────────────────────── */
-.marquee-wrap{
-  background:var(--orange);
-  padding:14px 0;overflow:hidden;white-space:nowrap;
-}
-.marquee-track{
-  display:inline-flex;gap:0;
-  animation:marquee 22s linear infinite;
-}
-.marquee-item{
-  font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;
-  color:#fff;padding:0 32px;
-  border-right:1px solid rgba(255,255,255,.25);
-}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* ─── SPLIT IMAGE SECTION ──────────────── */
-.split{
-  display:grid;grid-template-columns:1fr 1fr;
-  min-height:80vh;
-}
-.split-img{
-  position:relative;overflow:hidden;
-}
-.split-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.6);}
-.split-img .img-label{
-  position:absolute;bottom:28px;left:28px;
-  font-family:'Bebas Neue',sans-serif;font-size:3.5rem;letter-spacing:.04em;
-  color:var(--white);line-height:1;
-}
-.split-img .img-label span{color:var(--orange);}
-.split-content{
-  background:var(--white);color:var(--black);
-  display:flex;flex-direction:column;justify-content:center;
-  padding:72px 60px;
-}
-.split-content .sec-tag{
-  font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--orange);font-weight:700;margin-bottom:16px;
-}
-.split-content h2{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(2.6rem,4vw,3.8rem);line-height:1;
-  letter-spacing:.03em;color:var(--black);margin-bottom:24px;
-}
-.split-content p{
-  color:#555;font-size:.95rem;line-height:1.8;
-  font-weight:300;margin-bottom:32px;
-}
-.feature-row{display:flex;flex-direction:column;gap:16px;margin-bottom:36px;}
-.feat{display:flex;align-items:flex-start;gap:14px;}
-.feat-num{
-  font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--orange);
-  line-height:1;min-width:32px;
-}
-.feat-text strong{display:block;font-size:.9rem;color:var(--black);margin-bottom:3px;}
-.feat-text span{font-size:.82rem;color:#777;font-weight:300;}
-.btn-dark{
-  display:inline-block;background:var(--black);color:#fff;
-  font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;
-  padding:14px 32px;text-decoration:none;transition:background .2s;
-  align-self:flex-start;
-}
-.btn-dark:hover{background:var(--slate);}
-
-/* ─── SERVICES ─────────────────────────── */
-.services{background:var(--slate);padding:90px 0;}
-.services .container{max-width:1200px;margin:0 auto;padding:0 40px;}
-.services-header{
-  display:flex;align-items:flex-end;justify-content:space-between;
-  margin-bottom:56px;gap:24px;flex-wrap:wrap;
-}
-.services-header h2{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(3rem,6vw,5.5rem);letter-spacing:.03em;
-  color:var(--white);line-height:.95;
-}
-.services-header h2 em{color:var(--orange);font-style:normal;}
-.services-header p{color:rgba(255,255,255,.45);font-size:.88rem;line-height:1.7;max-width:300px;font-weight:300;}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.svc{
-  background:rgba(255,255,255,.04);
-  padding:40px 32px;
-  border-top:2px solid rgba(255,255,255,.07);
-  transition:background .25s,border-color .25s;
-  cursor:default;position:relative;overflow:hidden;
-}
-.svc::after{
-  content:'';
-  position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:var(--orange);transform:scaleX(0);transform-origin:left;
-  transition:transform .3s ease;
-}
-.svc:hover{background:rgba(255,255,255,.08);}
-.svc:hover::after{transform:scaleX(1);}
-.svc-num{
-  font-family:'Bebas Neue',sans-serif;font-size:3.5rem;
-  color:rgba(255,255,255,.07);line-height:1;margin-bottom:8px;
-  transition:color .25s;
-}
-.svc:hover .svc-num{color:rgba(232,114,10,.2);}
-.svc h3{
-  font-family:'Bebas Neue',sans-serif;font-size:1.5rem;
-  letter-spacing:.06em;color:var(--white);margin-bottom:10px;
-}
-.svc p{color:rgba(255,255,255,.45);font-size:.84rem;line-height:1.65;font-weight:300;}
-
-/* ─── PHOTO COLLAGE SECTION ────────────── */
-.photos{
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  grid-template-rows:280px 280px;
-  gap:3px;
-  background:var(--black);
-}
-.photo-cell{overflow:hidden;position:relative;}
-.photo-cell img{
-  width:100%;height:100%;object-fit:cover;
-  filter:brightness(.7) saturate(.7);
-  transition:filter .4s,transform .4s;
-}
-.photo-cell:hover img{filter:brightness(.85) saturate(1);transform:scale(1.04);}
-.photo-cell.tall{grid-row:span 2;}
-.photo-cell .caption{
-  position:absolute;bottom:18px;left:18px;
-  font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.1em;
-  color:rgba(255,255,255,.6);
+:root {
+  --navy:    #1b2e45;
+  --navy-dk: #111e2d;
+  --blue:    #2a5298;
+  --accent:  #d4691a;
+  --white:   #ffffff;
+  --off:     #f6f7f9;
+  --border:  #e2e6ec;
+  --text:    #22303f;
+  --muted:   #637282;
+  --light:   #eef1f6;
 }
 
-/* ─── REVIEWS ──────────────────────────── */
-.reviews{background:var(--white);color:var(--black);padding:90px 0;}
-.reviews .container{max-width:1200px;margin:0 auto;padding:0 40px;}
-.reviews-top{margin-bottom:56px;}
-.reviews-top .sec-tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:12px;}
-.reviews-top h2{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(3rem,6vw,5rem);letter-spacing:.03em;line-height:.95;
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  color: var(--text);
+  background: var(--white);
+  font-size: 16px;
+  line-height: 1.6;
 }
-.reviews-top h2 em{color:var(--orange);font-style:normal;}
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.rev{
-  border:1.5px solid #e0ddd8;padding:36px 28px;
-  position:relative;transition:border-color .2s,transform .2s;
-}
-.rev:hover{border-color:var(--orange);transform:translateY(-4px);}
-.rev-quote-mark{
-  font-family:'Bebas Neue',sans-serif;font-size:5rem;
-  color:var(--orange);line-height:.8;margin-bottom:4px;opacity:.5;
-}
-.rev-text{font-size:.9rem;line-height:1.75;color:#444;font-weight:300;margin-bottom:24px;font-style:italic;}
-.rev-author{display:flex;align-items:center;gap:12px;padding-top:20px;border-top:1px solid #e8e5e0;}
-.rev-initial{
-  width:40px;height:40px;background:var(--black);color:var(--orange);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Bebas Neue',sans-serif;font-size:1.2rem;flex-shrink:0;
-}
-.rev-name{font-weight:600;font-size:.88rem;}
-.rev-meta{font-size:.75rem;color:#999;margin-top:2px;}
-.rev-stars{color:var(--orange);font-size:.85rem;letter-spacing:2px;margin-bottom:12px;}
 
-/* ─── HOURS + CTA ──────────────────────── */
-.bottom{display:grid;grid-template-columns:1fr 1fr;min-height:480px;}
-.hours-panel{
-  background:var(--slate);
-  padding:72px 60px;display:flex;flex-direction:column;justify-content:center;
+/* ── TOPBAR ─────────────────────────────── */
+.topbar {
+  background: var(--navy-dk);
+  color: rgba(255,255,255,.65);
+  font-size: .82rem;
+  padding: 9px 0;
+  border-bottom: 2px solid var(--accent);
 }
-.hours-panel .sec-tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:16px;}
-.hours-panel h2{
-  font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.03em;
-  color:var(--white);margin-bottom:36px;line-height:1;
+.topbar-inner {
+  max-width: 1160px; margin: 0 auto; padding: 0 32px;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
 }
-.hours-list{display:flex;flex-direction:column;gap:0;}
-.h-row{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08);
-  font-size:.9rem;
+.topbar a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: .88rem;
+  letter-spacing: .02em;
+  transition: color .15s;
 }
-.h-row .d{color:rgba(255,255,255,.5);font-weight:300;}
-.h-row .t{color:var(--white);font-weight:500;}
-.h-row.today .d{color:var(--orange);font-weight:600;}
-.h-row.today .t{color:var(--orange);font-weight:700;}
-.h-row.closed .t{color:rgba(255,255,255,.2);font-weight:300;}
+.topbar a:hover { color: #ffa94d; }
+.topbar-left { display: flex; align-items: center; gap: 6px; }
+.topbar-left svg { opacity: .5; }
 
-.cta-panel{
-  background:var(--orange);
-  padding:72px 60px;display:flex;flex-direction:column;justify-content:center;
-  position:relative;overflow:hidden;
+/* ── NAV ────────────────────────────────── */
+nav {
+  background: var(--white);
+  position: sticky; top: 0; z-index: 200;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 16px rgba(0,0,0,.07);
 }
-.cta-panel::before{
-  content:'CALL';
-  position:absolute;right:-40px;top:-30px;
-  font-family:'Bebas Neue',sans-serif;font-size:14rem;
-  color:rgba(0,0,0,.1);line-height:1;pointer-events:none;
+.nav-inner {
+  max-width: 1160px; margin: 0 auto; padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
 }
-.cta-panel .sec-tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(0,0,0,.45);font-weight:700;margin-bottom:16px;}
-.cta-panel h2{
-  font-family:'Bebas Neue',sans-serif;font-size:3rem;letter-spacing:.03em;
-  color:#fff;margin-bottom:14px;line-height:1;
+.nav-brand {
+  font-weight: 900;
+  font-size: 1.05rem;
+  color: var(--navy);
+  line-height: 1.25;
+  padding: 16px 0;
+  letter-spacing: -.01em;
 }
-.cta-panel p{color:rgba(255,255,255,.75);font-size:.92rem;line-height:1.7;font-weight:300;margin-bottom:36px;max-width:340px;}
-.phone-huge{
-  font-family:'Bebas Neue',sans-serif;font-size:2.8rem;letter-spacing:.04em;
-  color:#fff;text-decoration:none;display:block;margin-bottom:24px;
-  transition:opacity .2s;position:relative;z-index:1;
+.nav-brand span { color: var(--accent); display: block; font-size: .8rem; font-weight: 600; letter-spacing: .02em; }
+.nav-links { display: flex; list-style: none; }
+.nav-links a {
+  display: block; padding: 22px 16px;
+  color: var(--muted); text-decoration: none;
+  font-size: .83rem; font-weight: 700;
+  letter-spacing: .04em; text-transform: uppercase;
+  transition: color .15s;
+  border-bottom: 3px solid transparent;
 }
-.phone-huge:hover{opacity:.8;}
-.btn-white{
-  display:inline-block;background:#fff;color:var(--orange);
-  font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.1em;
-  padding:14px 32px;text-decoration:none;transition:background .2s;
-  align-self:flex-start;position:relative;z-index:1;
+.nav-links a:hover { color: var(--navy); border-bottom-color: var(--accent); }
+.nav-phone-btn {
+  background: var(--navy);
+  color: var(--white);
+  padding: 11px 24px;
+  font-weight: 800; font-size: .88rem;
+  letter-spacing: .04em; text-transform: uppercase;
+  text-decoration: none;
+  transition: background .15s;
+  white-space: nowrap;
+  border-radius: 4px;
 }
-.btn-white:hover{background:rgba(255,255,255,.88);}
+.nav-phone-btn:hover { background: var(--blue); }
 
-/* ─── FOOTER ───────────────────────────── */
-footer{
-  background:var(--black);border-top:2px solid rgba(255,255,255,.07);
-  padding:36px 40px;
-  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
-  padding-bottom:80px;/* room for sticky phonebar */
+/* ── HERO ───────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex; align-items: center;
+  overflow: hidden;
 }
-.footer-brand{
-  font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:.1em;
-  color:rgba(255,255,255,.5);
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80') center/cover no-repeat;
 }
-.footer-brand em{color:var(--orange);font-style:normal;}
-footer p{color:rgba(255,255,255,.25);font-size:.75rem;}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(17,30,45,.92) 42%, rgba(17,30,45,.55) 100%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1160px; margin: 0 auto; padding: 80px 32px;
+  width: 100%;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.85);
+  font-size: .75rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  padding: 6px 16px; border-radius: 50px;
+  margin-bottom: 28px;
+}
+.hero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.hero h1 {
+  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  margin-bottom: 24px;
+  max-width: 620px;
+}
+.hero h1 em { color: #ffa94d; font-style: normal; }
+.hero-sub {
+  font-size: 1.1rem; font-weight: 300;
+  color: rgba(255,255,255,.7);
+  max-width: 480px; line-height: 1.75;
+  margin-bottom: 44px;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-accent {
+  background: var(--accent); color: var(--white);
+  padding: 15px 34px; border-radius: 4px;
+  font-weight: 800; font-size: .95rem; letter-spacing: .03em;
+  text-decoration: none;
+  transition: background .15s, transform .15s;
+  box-shadow: 0 4px 20px rgba(212,105,26,.4);
+}
+.btn-accent:hover { background: #e07820; transform: translateY(-2px); }
+.btn-outline-white {
+  border: 2px solid rgba(255,255,255,.45);
+  color: var(--white); padding: 15px 34px; border-radius: 4px;
+  font-weight: 700; font-size: .95rem;
+  text-decoration: none;
+  transition: border-color .15s, background .15s;
+}
+.btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
 
-/* ─── RESPONSIVE ───────────────────────── */
-@media(max-width:960px){
-  .hero{grid-template-columns:1fr;}
-  .hero-img{height:50vh;}
-  .hero-text{padding:48px 28px 100px;}
-  .split{grid-template-columns:1fr;}
-  .split-img{height:50vw;}
-  .services-grid{grid-template-columns:1fr 1fr;}
-  .photos{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px;}
-  .photo-cell.tall{grid-row:span 1;}
-  .reviews-grid{grid-template-columns:1fr;}
-  .bottom{grid-template-columns:1fr;}
-  .nav-links{display:none;}
-  nav{padding:16px 24px;}
-  footer{padding-bottom:80px;}
+/* hero trust bar */
+.hero-trust {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+  background: var(--white);
+  border-top: 3px solid var(--accent);
+  box-shadow: 0 -4px 24px rgba(0,0,0,.12);
 }
-@media(max-width:600px){
-  .services-grid{grid-template-columns:1fr;}
-  .photos{grid-template-columns:1fr;}
+.hero-trust-inner {
+  max-width: 1160px; margin: 0 auto; padding: 0 32px;
+  display: flex;
+}
+.ht-item {
+  flex: 1; padding: 22px 24px;
+  border-right: 1px solid var(--border);
+  display: flex; align-items: center; gap: 14px;
+}
+.ht-item:last-child { border-right: none; }
+.ht-icon {
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--light); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.ht-icon svg { width: 22px; height: 22px; stroke: var(--navy); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ht-label { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+.ht-val { font-size: .95rem; font-weight: 800; color: var(--navy); }
+
+/* ── WHY CHOOSE US ──────────────────────── */
+.why { padding: 90px 0; background: var(--off); border-bottom: 1px solid var(--border); }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+.section-kicker {
+  font-size: .72rem; font-weight: 800; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+}
+.section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 900; color: var(--navy);
+  letter-spacing: -.02em; line-height: 1.15;
+  margin-bottom: 16px;
+}
+.section-sub {
+  color: var(--muted); font-size: .98rem; font-weight: 400;
+  line-height: 1.75; max-width: 560px; margin-bottom: 56px;
+}
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.why-card {
+  background: var(--white); border-radius: 8px;
+  border: 1.5px solid var(--border);
+  padding: 36px 30px;
+  transition: box-shadow .2s, transform .2s, border-color .2s;
+}
+.why-card:hover {
+  box-shadow: 0 8px 36px rgba(27,46,69,.1);
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+.why-card-num {
+  font-size: 2.8rem; font-weight: 900;
+  color: var(--light); line-height: 1;
+  margin-bottom: 16px;
+  -webkit-text-stroke: 2px var(--border);
+}
+.why-card h3 {
+  font-size: 1rem; font-weight: 800;
+  text-transform: uppercase; letter-spacing: .06em;
+  color: var(--navy); margin-bottom: 10px;
+}
+.why-card p { color: var(--muted); font-size: .88rem; line-height: 1.7; font-weight: 400; }
+
+/* ── ABOUT + IMAGE ──────────────────────── */
+.about { padding: 90px 0; background: var(--white); }
+.about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.about-img { position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.14); }
+.about-img img { width: 100%; height: 480px; object-fit: cover; display: block; }
+.about-img-badge {
+  position: absolute; bottom: 24px; left: 24px;
+  background: var(--navy); color: var(--white);
+  padding: 14px 20px; border-radius: 6px;
+  border-left: 4px solid var(--accent);
+}
+.about-img-badge .big { font-size: 2rem; font-weight: 900; line-height: 1; color: #ffa94d; }
+.about-img-badge .small { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-top: 4px; }
+.about-text .section-sub { margin-bottom: 32px; }
+.about-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+.about-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: .92rem; color: var(--text); font-weight: 400; line-height: 1.6;
+}
+.about-list li::before {
+  content: '';
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--accent); flex-shrink: 0; margin-top: 2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='4 10 8 14 16 7'/%3E%3C/svg%3E");
+  background-size: cover;
+}
+.btn-navy {
+  display: inline-block; background: var(--navy); color: var(--white);
+  padding: 14px 32px; border-radius: 4px;
+  font-weight: 800; font-size: .92rem; letter-spacing: .03em;
+  text-decoration: none; transition: background .15s;
+}
+.btn-navy:hover { background: var(--blue); }
+
+/* ── SERVICES CARDS ─────────────────────── */
+.services { padding: 90px 0; background: var(--off); }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.svc-card {
+  background: var(--white); border-radius: 8px;
+  overflow: hidden; border: 1.5px solid var(--border);
+  transition: box-shadow .25s, transform .25s;
+}
+.svc-card:hover { box-shadow: 0 12px 40px rgba(27,46,69,.12); transform: translateY(-5px); }
+.svc-img { position: relative; height: 200px; overflow: hidden; }
+.svc-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; filter: brightness(.9); }
+.svc-card:hover .svc-img img { transform: scale(1.05); }
+.svc-img-label {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to top, rgba(17,30,45,.7) 0%, transparent 60%);
+}
+.svc-body { padding: 24px 22px 28px; }
+.svc-body h3 {
+  font-size: 1.05rem; font-weight: 800; color: var(--navy);
+  letter-spacing: .02em; margin-bottom: 8px;
+}
+.svc-body p { color: var(--muted); font-size: .86rem; line-height: 1.65; }
+
+/* ── CTA BANNER ─────────────────────────── */
+.cta-banner {
+  background: var(--navy);
+  background-image: linear-gradient(135deg, var(--navy-dk) 0%, #1e3d5e 100%);
+  padding: 72px 0;
+  position: relative; overflow: hidden;
+}
+.cta-banner::before {
+  content: '';
+  position: absolute; right: -100px; top: -100px;
+  width: 500px; height: 500px; border-radius: 50%;
+  background: rgba(255,255,255,.025);
+}
+.cta-inner {
+  max-width: 1160px; margin: 0 auto; padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
+}
+.cta-text h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 900;
+  color: var(--white); letter-spacing: -.01em; line-height: 1.2;
+  margin-bottom: 10px;
+}
+.cta-text p { color: rgba(255,255,255,.6); font-size: .95rem; font-weight: 300; }
+.cta-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; flex-shrink: 0; }
+.cta-phone {
+  font-size: 2.2rem; font-weight: 900;
+  color: #ffa94d; text-decoration: none;
+  letter-spacing: -.01em; line-height: 1;
+  transition: color .15s;
+}
+.cta-phone:hover { color: #fff; }
+
+/* ── REVIEWS ────────────────────────────── */
+.reviews { padding: 90px 0; background: var(--white); }
+.reviews-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; flex-wrap: wrap; gap: 20px; }
+.rating-pill {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--off); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 16px 24px;
+}
+.rating-pill .score { font-size: 2.8rem; font-weight: 900; color: var(--navy); line-height: 1; }
+.rating-pill .stars { color: #f5a623; font-size: 1rem; letter-spacing: 2px; margin-bottom: 4px; }
+.rating-pill .count { font-size: .78rem; color: var(--muted); font-weight: 600; }
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.rev-card {
+  background: var(--off); border-radius: 8px;
+  border: 1.5px solid var(--border);
+  padding: 30px 26px;
+  transition: box-shadow .2s, transform .2s;
+}
+.rev-card:hover { box-shadow: 0 8px 30px rgba(27,46,69,.09); transform: translateY(-3px); }
+.rev-stars { color: #f5a623; font-size: .85rem; letter-spacing: 2px; margin-bottom: 14px; }
+.rev-text { font-size: .9rem; line-height: 1.75; color: var(--text); font-style: italic; font-weight: 300; margin-bottom: 22px; }
+.rev-author { display: flex; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid var(--border); }
+.rev-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--navy); color: #ffa94d;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 1rem; flex-shrink: 0;
+}
+.rev-name { font-weight: 800; font-size: .88rem; color: var(--navy); }
+.rev-meta { font-size: .75rem; color: var(--muted); margin-top: 2px; }
+
+/* ── HOURS + CONTACT ────────────────────── */
+.bottom-section { padding: 90px 0; background: var(--off); border-top: 1px solid var(--border); }
+.bottom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.hours-title { margin-bottom: 28px; }
+.hours-table { width: 100%; border-collapse: collapse; }
+.hours-table tr { border-bottom: 1px solid var(--border); }
+.hours-table td { padding: 13px 6px; font-size: .9rem; }
+.hours-table td:first-child { color: var(--muted); font-weight: 600; }
+.hours-table td:last-child { text-align: right; font-weight: 700; color: var(--navy); }
+.hours-table tr.today td { color: var(--accent) !important; }
+.hours-table tr.closed td:last-child { color: var(--muted); font-weight: 400; }
+.contact-cards { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+.contact-card {
+  display: flex; align-items: center; gap: 16px;
+  background: var(--white); border-radius: 6px;
+  border: 1.5px solid var(--border);
+  padding: 18px 20px; text-decoration: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.contact-card:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(212,105,26,.1); }
+.cc-icon {
+  width: 44px; height: 44px; border-radius: 8px;
+  background: var(--navy); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.cc-icon svg { width: 20px; height: 20px; stroke: white; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cc-label { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+.cc-val { font-weight: 800; font-size: .95rem; color: var(--navy); }
+
+/* ── FOOTER ─────────────────────────────── */
+footer {
+  background: var(--navy-dk);
+  border-top: 3px solid var(--accent);
+  padding: 36px 0;
+}
+.footer-inner {
+  max-width: 1160px; margin: 0 auto; padding: 0 32px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+}
+.footer-brand { font-size: 1rem; font-weight: 900; color: var(--white); letter-spacing: -.01em; }
+.footer-brand span { color: #ffa94d; }
+footer p { color: rgba(255,255,255,.3); font-size: .78rem; }
+.footer-right a { color: #ffa94d; font-weight: 800; font-size: 1.05rem; text-decoration: none; display: block; }
+.footer-right span { color: rgba(255,255,255,.3); font-size: .72rem; }
+
+/* ── RESPONSIVE ─────────────────────────── */
+@media (max-width: 960px) {
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .about-inner { grid-template-columns: 1fr; }
+  .about-img img { height: 320px; }
+  .bottom-grid { grid-template-columns: 1fr; }
+  .hero-trust-inner { flex-wrap: wrap; }
+  .ht-item { flex: 1 1 45%; border-bottom: 1px solid var(--border); }
+  .nav-links { display: none; }
+  .cta-inner { flex-direction: column; align-items: flex-start; }
+  .cta-actions { align-items: flex-start; }
+}
+@media (max-width: 600px) {
+  .why-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .hero-trust-inner { flex-direction: column; }
+  .ht-item { border-right: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- STICKY PHONE -->
-<div class="phonebar">
-  <a href="tel:4799700096">📞 (479) 970-0096</a>
-  <span>Mon – Fri · 9 AM – 4 PM</span>
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Serving Northwest Arkansas
+    </div>
+    <a href="tel:4799700096">Call Today &mdash; (479) 970-0096</a>
+  </div>
 </div>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-brand">Affordable Quality<em>Appliance Repair</em></div>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <a href="tel:4799700096" class="nav-cta">Call Now</a>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      Affordable Quality Appliance Repair
+      <span>Northwest Arkansas</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:4799700096" class="nav-phone-btn">Call (479) 970-0096</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-img">
-    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80" alt="Appliance repair technician" id="hero-img">
-  </div>
-  <div class="hero-text">
-    <div class="hero-rating">
-      <div class="stars-badge">⭐ 4.5</div>
-      <span class="rating-text">39 Google Reviews</span>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">4.5 Stars &nbsp;&middot;&nbsp; 39 Google Reviews</div>
+    <h1>Professional<br>Appliance Repair<br>in <em>Northwest Arkansas</em></h1>
+    <p class="hero-sub">Fast, honest, and affordable. We come to you, diagnose the problem correctly, and fix it right — no surprises, no runaround.</p>
+    <div class="hero-btns">
+      <a href="tel:4799700096" class="btn-accent">Call (479) 970-0096</a>
+      <a href="#services" class="btn-outline-white">Learn About Our Services</a>
     </div>
-    <div class="hero-tag">Northwest Arkansas</div>
-    <h1>We Fix<br><span class="line-orange">What's</span><br>Broken.</h1>
-    <p class="hero-desc">Fast, honest appliance repair — washers, dryers, ovens, fridges and more. Brian comes to you. No guesswork, no surprise charges.</p>
-    <div class="hero-actions">
-      <a href="tel:4799700096" class="btn-main">Call (479) 970-0096</a>
-      <a href="#services" class="btn-line">See Services</a>
+  </div>
+  <div class="hero-trust">
+    <div class="hero-trust-inner">
+      <div class="ht-item">
+        <div class="ht-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div>
+          <div class="ht-label">Service</div>
+          <div class="ht-val">All Major Brands</div>
+        </div>
+      </div>
+      <div class="ht-item">
+        <div class="ht-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <div class="ht-label">Hours</div>
+          <div class="ht-val">Mon &ndash; Fri, 9AM&ndash;4PM</div>
+        </div>
+      </div>
+      <div class="ht-item">
+        <div class="ht-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div>
+          <div class="ht-label">Service Type</div>
+          <div class="ht-val">In-Home Repair</div>
+        </div>
+      </div>
+      <div class="ht-item">
+        <div class="ht-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <div>
+          <div class="ht-label">Pricing</div>
+          <div class="ht-val">Fair &amp; Transparent</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="marquee-item">Washer Repair</span>
-    <span class="marquee-item">Dryer Repair</span>
-    <span class="marquee-item">Oven & Range</span>
-    <span class="marquee-item">Refrigerators</span>
-    <span class="marquee-item">Dishwashers</span>
-    <span class="marquee-item">All Major Brands</span>
-    <span class="marquee-item">Northwest Arkansas</span>
-    <span class="marquee-item">Fair Pricing</span>
-    <span class="marquee-item">Washer Repair</span>
-    <span class="marquee-item">Dryer Repair</span>
-    <span class="marquee-item">Oven & Range</span>
-    <span class="marquee-item">Refrigerators</span>
-    <span class="marquee-item">Dishwashers</span>
-    <span class="marquee-item">All Major Brands</span>
-    <span class="marquee-item">Northwest Arkansas</span>
-    <span class="marquee-item">Fair Pricing</span>
-  </div>
-</div>
-
-<!-- SPLIT: ABOUT -->
-<section class="split" id="about">
-  <div class="split-img">
-    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=900&q=80" alt="Repair technician working">
-    <div class="img-label">Done<br><span>Right.</span></div>
-  </div>
-  <div class="split-content">
-    <p class="sec-tag">Why Choose Us</p>
-    <h2>Local. Honest.<br>Experienced.</h2>
-    <p>We're a Northwest Arkansas appliance repair service built on doing things right the first time. Brian diagnoses the actual problem, explains it clearly, and fixes it at a fair price.</p>
-    <div class="feature-row">
-      <div class="feat">
-        <div class="feat-num">01</div>
-        <div class="feat-text">
-          <strong>Full Diagnostic First</strong>
-          <span>We test before we quote — no unnecessary parts, no guessing.</span>
-        </div>
+<!-- WHY CHOOSE US -->
+<section class="why" id="about">
+  <div class="container">
+    <p class="section-kicker">Why Choose Us</p>
+    <h2 class="section-title">Reputation Is Our<br>Recipe for Success</h2>
+    <p class="section-sub">We believe that honest, reliable service builds a business worth trusting. No corners cut, no unnecessary repairs recommended — just straightforward work at a fair price.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-card-num">01</div>
+        <h3>Accurate Diagnostics</h3>
+        <p>We run a full diagnostic test before recommending any repair. You'll know exactly what's wrong and what it costs before we do anything.</p>
       </div>
-      <div class="feat">
-        <div class="feat-num">02</div>
-        <div class="feat-text">
-          <strong>Transparent Pricing</strong>
-          <span>You know the cost before we start. Always.</span>
-        </div>
+      <div class="why-card">
+        <div class="why-card-num">02</div>
+        <h3>Locally Owned</h3>
+        <p>We're a local Northwest Arkansas business that runs on one principle — treat people fairly and do the job right the first time.</p>
       </div>
-      <div class="feat">
-        <div class="feat-num">03</div>
-        <div class="feat-text">
-          <strong>We Come To You</strong>
-          <span>Same-week in-home service across Northwest Arkansas.</span>
-        </div>
-      </div>
-      <div class="feat">
-        <div class="feat-num">04</div>
-        <div class="feat-text">
-          <strong>We Stand Behind Our Work</strong>
-          <span>If it happens again, we come back. Simple as that.</span>
-        </div>
+      <div class="why-card">
+        <div class="why-card-num">03</div>
+        <h3>Above-Standard Communication</h3>
+        <p>From scheduling to follow-up, customers consistently say our communication is better than anything else they've experienced.</p>
       </div>
     </div>
-    <a href="tel:4799700096" class="btn-dark">Book a Repair</a>
+  </div>
+</section>
+
+<!-- ABOUT + IMAGE -->
+<section class="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=900&q=80" alt="Appliance repair technician at work">
+        <div class="about-img-badge">
+          <div class="big">4.5</div>
+          <div class="small">Star Google Rating</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="section-kicker">About Us</p>
+        <h2 class="section-title">Northwest Arkansas&rsquo; Most Trusted Appliance Repair</h2>
+        <p class="section-sub">We are committed to providing quality service to the community. While others seek to profit by cutting corners or recommending unnecessary services, we believe that a good reputation and consistent service is the recipe for long-term success.</p>
+        <ul class="about-list">
+          <li>We come directly to your home — no hauling appliances anywhere</li>
+          <li>Full diagnostic completed before any repair is recommended</li>
+          <li>Transparent quotes — you approve the cost before we start</li>
+          <li>We stand behind our work — if it happens again, we come back</li>
+          <li>Serving all of Northwest Arkansas, Monday through Friday</li>
+        </ul>
+        <a href="tel:4799700096" class="btn-navy">Schedule a Repair</a>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="container">
-    <div class="services-header">
-      <h2>What We<br><em>Fix.</em></h2>
-      <p>From laundry rooms to kitchens — if it's a major home appliance and it's broken, call us. We'll figure it out.</p>
-    </div>
+    <p class="section-kicker">What We Fix</p>
+    <h2 class="section-title">Our Repair Services</h2>
+    <p class="section-sub" style="margin-bottom:44px;">We repair all major home appliances. Call us, describe the problem, and we'll schedule an in-home visit.</p>
     <div class="services-grid">
-      <div class="svc">
-        <div class="svc-num">01</div>
-        <h3>Washers</h3>
-        <p>Won't drain, won't spin, cycling on its own — all brands including Whirlpool, GE, Samsung and LG.</p>
+      <div class="svc-card">
+        <div class="svc-img">
+          <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=600&q=75" alt="Washing machine repair">
+          <div class="svc-img-label"></div>
+        </div>
+        <div class="svc-body">
+          <h3>Washer &amp; Dryer Repair</h3>
+          <p>Won't drain, won't spin, not heating, or cycling on its own — we repair all washer and dryer makes and models including Whirlpool, GE, Samsung, and LG.</p>
+        </div>
       </div>
-      <div class="svc">
-        <div class="svc-num">02</div>
-        <h3>Dryers</h3>
-        <p>Not heating, taking too long, or won't start. We get your laundry moving again fast.</p>
+      <div class="svc-card">
+        <div class="svc-img">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=75" alt="Oven and range repair">
+          <div class="svc-img-label"></div>
+        </div>
+        <div class="svc-body">
+          <h3>Oven &amp; Range Repair</h3>
+          <p>Gas or electric, wall ovens or freestanding ranges — igniters, heating elements, thermostats and control boards repaired correctly.</p>
+        </div>
       </div>
-      <div class="svc">
-        <div class="svc-num">03</div>
-        <h3>Ovens & Ranges</h3>
-        <p>Gas or electric, wall ovens or freestanding — igniters, elements, thermostats and more.</p>
+      <div class="svc-card">
+        <div class="svc-img">
+          <img src="https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=600&q=75" alt="Refrigerator repair">
+          <div class="svc-img-label"></div>
+        </div>
+        <div class="svc-body">
+          <h3>Refrigerator Repair</h3>
+          <p>Not cooling, ice maker not working, unusual noises — we diagnose and repair refrigerators of all types and brands.</p>
+        </div>
       </div>
-      <div class="svc">
-        <div class="svc-num">04</div>
-        <h3>Refrigerators</h3>
-        <p>Not cooling, ice maker problems, unusual noises — we service all refrigerator types.</p>
+      <div class="svc-card">
+        <div class="svc-img">
+          <img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=600&q=75" alt="Dishwasher repair">
+          <div class="svc-img-label"></div>
+        </div>
+        <div class="svc-body">
+          <h3>Dishwasher Repair</h3>
+          <p>Not draining, leaving residue, won't complete a cycle — we service all dishwasher brands and restore full performance.</p>
+        </div>
       </div>
-      <div class="svc">
-        <div class="svc-num">05</div>
-        <h3>Dishwashers</h3>
-        <p>Not draining, leaving residue, won't cycle — dishwasher repairs done correctly.</p>
+      <div class="svc-card">
+        <div class="svc-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75" alt="Appliance diagnostic service">
+          <div class="svc-img-label"></div>
+        </div>
+        <div class="svc-body">
+          <h3>Diagnostic Service</h3>
+          <p>Not sure what is wrong? We run a complete diagnostic, explain the issue in plain language, and give you a fair quote before any work begins.</p>
+        </div>
       </div>
-      <div class="svc">
-        <div class="svc-num">06</div>
-        <h3>Diagnostic Service</h3>
-        <p>Not sure what's wrong? We run a full test, explain everything clearly, and give you an honest quote before touching anything.</p>
+      <div class="svc-card">
+        <div class="svc-img">
+          <img src="https://images.unsplash.com/photo-1604335398886-61a37b44e46a?w=600&q=75" alt="All major appliance brands">
+          <div class="svc-img-label"></div>
+        </div>
+        <div class="svc-body">
+          <h3>All Major Brands</h3>
+          <p>Whirlpool, GE, Samsung, LG, Maytag, KitchenAid, Frigidaire and more. If it is a major home appliance, we can repair it.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PHOTO COLLAGE -->
-<div class="photos">
-  <div class="photo-cell tall">
-    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=75" alt="Modern kitchen">
-    <span class="caption">Your Home</span>
-  </div>
-  <div class="photo-cell">
-    <img src="https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=600&q=75" alt="Washing machine">
-    <span class="caption">Washers</span>
-  </div>
-  <div class="photo-cell">
-    <img src="https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=600&q=75" alt="Oven range">
-    <span class="caption">Ovens</span>
-  </div>
-  <div class="photo-cell">
-    <img src="https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=600&q=75" alt="Refrigerator">
-    <span class="caption">Fridges</span>
-  </div>
-  <div class="photo-cell">
-    <img src="https://images.unsplash.com/photo-1604335398886-61a37b44e46a?w=600&q=75" alt="Dryer appliance">
-    <span class="caption">Dryers</span>
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>Are You Looking for Expert<br>Appliance Repair Services?</h2>
+      <p>Give us a call during business hours and we will get you scheduled quickly.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="tel:4799700096" class="cta-phone">(479) 970-0096</a>
+      <a href="tel:4799700096" class="btn-accent">Call Now to Get Started</a>
+    </div>
   </div>
 </div>
 
 <!-- REVIEWS -->
 <section class="reviews" id="reviews">
   <div class="container">
-    <div class="reviews-top">
-      <p class="sec-tag">Google Reviews</p>
-      <h2>4.5 Stars.<br><em>39 Reviews.</em></h2>
+    <div class="reviews-header">
+      <div>
+        <p class="section-kicker">Customer Reviews</p>
+        <h2 class="section-title">What Our Customers Are Saying</h2>
+      </div>
+      <div class="rating-pill">
+        <div class="score">4.5</div>
+        <div>
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+          <div class="count">39 Google Reviews</div>
+        </div>
+      </div>
     </div>
     <div class="reviews-grid">
-      <div class="rev">
-        <div class="rev-stars">★★★★★</div>
-        <div class="rev-quote-mark">"</div>
-        <p class="rev-text">We highly recommend Affordable Quality Appliance Repair. Bryan came out and diagnosed our wall oven, replaced the igniter and fixed it. Their appointment set up and communication are above standard in my opinion. We will definitely use them again.</p>
+      <div class="rev-card">
+        <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="rev-text">"We highly recommend Affordable Quality Appliance Repair. Bryan came out and diagnosed our wall oven, replaced the igniter and fixed the oven. Their appointment set up and communication are above standard in my opinion. We will be using this company again if we have another appliance issue."</p>
         <div class="rev-author">
-          <div class="rev-initial">J</div>
+          <div class="rev-avatar">J</div>
           <div>
             <div class="rev-name">Josh C.</div>
-            <div class="rev-meta">Local Guide · 9 months ago</div>
+            <div class="rev-meta">Local Guide &middot; 9 months ago</div>
           </div>
         </div>
       </div>
-      <div class="rev">
-        <div class="rev-stars">★★★★★</div>
-        <div class="rev-quote-mark">"</div>
-        <p class="rev-text">Best repair company I have ever used. So thankful. Brian does a great job and is really friendly. 5 plus stars. Everything from scheduling to the end repair was perfect. Thank you for fixing our dryer.</p>
+      <div class="rev-card">
+        <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="rev-text">"Best repair company that I have ever used. So thankful. Brian does a great job and is really friendly. 5 plus stars. Everything from scheduling to the end repair was perfect. Thank you for fixing our dryer."</p>
         <div class="rev-author">
-          <div class="rev-initial">C</div>
+          <div class="rev-avatar">C</div>
           <div>
             <div class="rev-name">Chris Goodwin</div>
             <div class="rev-meta">1 year ago</div>
           </div>
         </div>
       </div>
-      <div class="rev">
-        <div class="rev-stars">★★★★★</div>
-        <div class="rev-quote-mark">"</div>
-        <p class="rev-text">Brian came to check my Whirlpool washer — it was cycling to drain on its own. He reset it and ran a full diagnostic. It began to work properly and he told me to call if it started again and he would come back.</p>
+      <div class="rev-card">
+        <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="rev-text">"Brian came to check my Whirlpool washer as it was cycling to drain on its own. He reset it and ran a diagnostic test on it. It began to work properly. He told me to let him know if it started doing it again and he would come back."</p>
         <div class="rev-author">
-          <div class="rev-initial">W</div>
+          <div class="rev-avatar">W</div>
           <div>
             <div class="rev-name">Wayne C.</div>
             <div class="rev-meta">10 months ago</div>
@@ -603,51 +696,85 @@ footer p{color:rgba(255,255,255,.25);font-size:.75rem;}
   </div>
 </section>
 
-<!-- HOURS + CTA -->
-<div class="bottom" id="contact">
-  <div class="hours-panel">
-    <p class="sec-tag">Business Hours</p>
-    <h2>When We're<br>Open</h2>
-    <div class="hours-list" id="hlist">
-      <div class="h-row" data-day="0"><span class="d">Sunday</span><span class="t">Closed</span></div>
-      <div class="h-row" data-day="1"><span class="d">Monday</span><span class="t">9:00 AM – 4:00 PM</span></div>
-      <div class="h-row" data-day="2"><span class="d">Tuesday</span><span class="t">9:00 AM – 4:00 PM</span></div>
-      <div class="h-row" data-day="3"><span class="d">Wednesday</span><span class="t">9:00 AM – 4:00 PM</span></div>
-      <div class="h-row" data-day="4"><span class="d">Thursday</span><span class="t">9:00 AM – 4:00 PM</span></div>
-      <div class="h-row" data-day="5"><span class="d">Friday</span><span class="t">9:00 AM – 4:00 PM</span></div>
-      <div class="h-row" data-day="6"><span class="d">Saturday</span><span class="t">Closed</span></div>
+<!-- HOURS + CONTACT -->
+<section class="bottom-section" id="contact">
+  <div class="container">
+    <div class="bottom-grid">
+      <div>
+        <div class="hours-title">
+          <p class="section-kicker">Business Hours</p>
+          <h2 class="section-title">Hours of Operation</h2>
+        </div>
+        <table class="hours-table" id="hours-table">
+          <tr data-day="0"><td>Sunday</td><td>Closed</td></tr>
+          <tr data-day="1"><td>Monday</td><td>9:00 AM &ndash; 4:00 PM</td></tr>
+          <tr data-day="2"><td>Tuesday</td><td>9:00 AM &ndash; 4:00 PM</td></tr>
+          <tr data-day="3"><td>Wednesday</td><td>9:00 AM &ndash; 4:00 PM</td></tr>
+          <tr data-day="4"><td>Thursday</td><td>9:00 AM &ndash; 4:00 PM</td></tr>
+          <tr data-day="5"><td>Friday</td><td>9:00 AM &ndash; 4:00 PM</td></tr>
+          <tr data-day="6"><td>Saturday</td><td>Closed</td></tr>
+        </table>
+      </div>
+      <div>
+        <p class="section-kicker">Get In Touch</p>
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-cards">
+          <a href="tel:4799700096" class="contact-card">
+            <div class="cc-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.8a19.79 19.79 0 01-3.07-8.7A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+            </div>
+            <div>
+              <div class="cc-label">Call or Text</div>
+              <div class="cc-val">(479) 970-0096</div>
+            </div>
+          </a>
+          <div class="contact-card">
+            <div class="cc-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="cc-label">Service Area</div>
+              <div class="cc-val">Northwest Arkansas</div>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="cc-icon">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div>
+              <div class="cc-label">Google Rating</div>
+              <div class="cc-val">4.5 Stars &middot; 39 Reviews</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="cta-panel">
-    <p class="sec-tag">Ready to Book?</p>
-    <h2>Call or Text<br>Us Today</h2>
-    <p>We pick up, we show up, and we fix it right. Serving Northwest Arkansas Monday through Friday.</p>
-    <a href="tel:4799700096" class="phone-huge">📞 (479) 970-0096</a>
-    <a href="tel:4799700096" class="btn-white">Schedule a Repair</a>
-  </div>
-</div>
+</section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand">Affordable <em>Quality</em> Appliance Repair</div>
-  <p>© 2025 · Northwest Arkansas · Mon–Fri 9AM–4PM</p>
-  <p>(479) 970-0096</p>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Affordable <span>Quality</span> Appliance Repair</div>
+      <p style="margin-top:6px;">&copy; 2025 &middot; Northwest Arkansas &middot; All Rights Reserved</p>
+    </div>
+    <p>Mon &ndash; Fri &nbsp; 9:00 AM &ndash; 4:00 PM</p>
+    <div class="footer-right">
+      <a href="tel:4799700096">(479) 970-0096</a>
+      <span>Call or Text Anytime</span>
+    </div>
+  </div>
 </footer>
 
 <script>
-  // Highlight today
-  const d = new Date().getDay();
-  const row = document.querySelector(`[data-day="${d}"]`);
-  if(row){ row.classList.add('today'); }
-  [0,6].forEach(n=>{
-    const r = document.querySelector(`#hlist [data-day="${n}"]`);
-    if(r) r.classList.add('closed');
+  const today = new Date().getDay();
+  const rows = document.querySelectorAll('#hours-table tr');
+  rows.forEach(r => {
+    const d = parseInt(r.getAttribute('data-day'));
+    if (d === today) r.classList.add('today');
+    if (d === 0 || d === 6) r.classList.add('closed');
   });
-
-  // Animate hero image on load
-  const img = document.getElementById('hero-img');
-  if(img.complete){ img.classList.add('loaded'); }
-  else { img.addEventListener('load', ()=> img.classList.add('loaded')); }
 </script>
 </body>
 </html>
